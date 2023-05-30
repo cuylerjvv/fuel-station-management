@@ -1,0 +1,11 @@
+.d-flex {
+    display: flex;
+}
+
+.margin {
+    margin: 0 10px 0 10px;
+}
+.week-toggler {
+    justify-content: center;
+    margin-bottom: 10px;
+}

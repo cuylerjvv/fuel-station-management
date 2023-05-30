@@ -1,0 +1,24 @@
+.modal {
+    border: double;
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(187, 187, 187);
+    padding: 20px;
+    width: 20%;
+    z-index: 10;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(134, 134, 134, 0.75);
+    z-index: 10;
+}
+.un-clickable {
+    pointer-events: none;
+}

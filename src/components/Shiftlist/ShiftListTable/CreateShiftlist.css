@@ -1,0 +1,37 @@
+.form-div {
+    border: solid;
+    padding: 2px;
+}
+
+.formss {
+    padding: 3px;
+    text-align: center;
+}
+
+.shiftlist-table-div{
+    display: flex;
+    padding: 5px;
+}
+
+.shiftlist-left-div {
+    justify-content:left;
+    height: 30px;
+    width: 100px;
+    margin: auto 5px;
+    padding-top: 10px;
+    transform: rotate(-90deg);
+}
+
+.shiftlist-right-div{
+    
+    border-style: solid;
+    border-color: lightslategray;
+    border-width: 1px;
+    padding: 3px 3px 3px 3px;
+    margin: 0 0 0 0;
+    text-align: center;
+}
+
+/* .button-and-link {
+    
+} */

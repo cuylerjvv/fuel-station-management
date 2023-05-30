@@ -1,0 +1,33 @@
+.list-item {
+    background-color: lightgrey;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px 2px 1px 2px;
+    margin: 0 auto;
+    width: 80vh;
+    
+}
+.employee {
+    margin: 0 auto;  
+    justify-content: space-between;
+}
+.employee-info {
+    margin: 0;
+    text-align: right;
+}
+.d-flex {
+    display: flex;
+}
+
+.employee-name {
+    margin: 0 40px 0 0;
+}
+
+.button {
+    height: 20px;
+    margin: auto 0;    
+}
+
+.buttons {
+    text-align: right;
+}

@@ -1,0 +1,10 @@
+.shiftList {
+    text-align: center;
+}
+
+.dates {
+    display: flex;
+}
+.days-div {
+    display: flex;
+}

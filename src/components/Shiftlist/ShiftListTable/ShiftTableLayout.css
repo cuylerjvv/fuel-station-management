@@ -1,0 +1,22 @@
+.d-flex{
+    display: flex;
+}
+
+.shiftTable {
+    margin-left: 50px;
+}
+.containerDiv {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px; 
+    margin-left: 130px;
+}
+.shifts {
+    width: 526px;
+}
+
+.cell {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px
+}
