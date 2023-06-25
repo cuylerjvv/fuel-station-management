@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const employeeSchema = new Schema({
     name: {type: String, require: true}, 
     surname: {type: String, require: true}, 
+    nationality: {type: String, require: true}, 
     rid: {type: String, require: true}
 })
 

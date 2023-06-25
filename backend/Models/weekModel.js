@@ -3,25 +3,44 @@ const databaseConnections = require('../databaseConnections');
 
 const Schema = mongoose.Schema;
 
-const weekSchema = new Schema ({
-    firstDay: { type: Date, required: true}, 
+const weekSchemaDixie = new Schema ({
+    firstDay: { type: Number}, 
     days: [{
-        day: {type: Date, required: true}, 
+        day: {type: Number}, 
         shifts: {
             dayshift: {
-                cashier: {type: String, required: true}, 
-                attendant: [{type: String, required: true}]
+                cashier: {type: Object}, 
+                attendantOne: {type: Object},
+                attendantTwo: {type: Object},
+                attendantThree: {type: Object}
             },
             nightshift: {
-                cashier: {type: String, required: true}, 
-                attendant: [{type: String, required: true}]
+                cashier: {type: Object}, 
+                attendantOne: {type: Object},
+                attendantTwo: {type: Object},
+                attendantThree: {type: Object}
             }
         }
     }]
 })
 
-const Week_D = databaseConnections.dixie.model("Week", weekSchema);
-const Week_G = databaseConnections.gazelle.model("Week", weekSchema);
+const weekSchemaGazelle = new Schema ({
+    firstDay: { type: Number}, 
+    days: [{
+        day: {type: Number}, 
+        shifts: {
+            dayshift: {
+                cashier: {type: Object}, 
+                attendantOne: {type: Object},
+                attendantTwo: {type: Object},
+                attendantThree: {type: Object}
+            }
+        }
+    }]
+})
+
+const Week_D = databaseConnections.dixie.model("Week", weekSchemaDixie);
+const Week_G = databaseConnections.gazelle.model("Week", weekSchemaGazelle);
 
 module.exports = {
     Week_D, 

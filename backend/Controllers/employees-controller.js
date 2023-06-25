@@ -18,7 +18,7 @@ const getEmployee = async (req, res, next) => {
       console.log('GET req for dixie employees');
 
       // employee is a array with all the values that corresponded with the find() method's arguments, with employeeModel schema, in the Employee_D database.
-      employees = await employeeModel.Employee_D.find({}, 'name surname rid id');
+      employees = await employeeModel.Employee_D.find({}, 'name surname nationality rid id');
 
       res.json({
         employee: employees.map(employee => employee.toObject({ getters: true })),
@@ -27,7 +27,7 @@ const getEmployee = async (req, res, next) => {
 
     if (location === 'gazelle') {
       console.log('GET req for gazelle employees');
-      employees = await employeeModel.Employee_G.find({}, 'name surname rid id');
+      employees = await employeeModel.Employee_G.find({}, 'name surname nationality rid id');
 
       res.json({
         employee: employees.map(employee => employee.toObject({ getters: true })),
@@ -37,7 +37,7 @@ const getEmployee = async (req, res, next) => {
     console.log(error);
     res.status(500).json({ message: 'Server error' });
   }
-};
+}; 
 
 
 const createEmployee = async (req, res, next) => {
@@ -57,6 +57,7 @@ const createEmployee = async (req, res, next) => {
         id: uuidv4(),
         name: req.body.name,
         surname: req.body.surname,
+        nationality: req.body.nationality,
         rid: req.body.rid
       });
     } else if (location === 'gazelle') {
@@ -65,6 +66,7 @@ const createEmployee = async (req, res, next) => {
         id: uuidv4(),
         name: req.body.name,
         surname: req.body.surname,
+        nationality: req.body.nationality,
         rid: req.body.rid
       });
     } else {
@@ -80,28 +82,11 @@ const createEmployee = async (req, res, next) => {
   }
 };
 
-// const updateEmployee = async (req, res, next) => {
-//     console.log("PATCH req for employees");
-//     const { name, surname, rid, id } = req.body;
-    
-//     // Add try and catch erros here. initialize employee outside of try. 
-//     let employee = await Employee.findById(id);
-
-//     employee.name = name;
-//     employee.surname = surname;
-//     employee.rid = rid;
-
-//     await employee.save();
-
-//     res.status(200).json({employee: employee.toObject({ getters: true})});
-// }
-
 const deleteEmployee = async (req, res, next) => {
   console.log('DELETE');
   try {
 
     const location = req.location;
-    console.log(location);
     const { employeeId } = req.body;
     console.log(employeeId);
 
@@ -138,6 +123,5 @@ const deleteEmployee = async (req, res, next) => {
 module.exports = {
     getEmployee: getEmployee,
     createEmployee: createEmployee,
-    // updateEmployee, 
     deleteEmployee: deleteEmployee
 };

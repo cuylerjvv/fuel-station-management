@@ -1,32 +1,30 @@
-.shiftlist-right-div {
+.shiftlist-week-flex-div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid gray;
-    padding: 10px;
-    margin-bottom: 10px;
   }
   
-  .day-div {
+  .shiftlist-day-div {
     align-items: center;
   }
   
   .date-div {
     background-color: #f0f0f0;
+    border: solid 1px gray;
     padding: 5px;
-    /* margin-right: 10px; */
+    text-align: center;
   }
-  
-  .day-shift-div,
-  .night-shift-div {
-    /* Removed display: flex */
+
+  .h-three {
+    text-align: center;
   }
   
   .cashier-div {
-    /* Added background color */
-    background-color: lightgreen;
+    background-color: rgb(60, 194, 60);
     border: 1px solid lightgray;
-    /* padding: 5px; */
-    /* margin-right: 10px; */
+    height: 25px;
+    width: 160px;
+
   }
   
   .attendee-div {
@@ -35,21 +33,16 @@
     border-width: 1px;
     border-color: lightgrey;
     margin-right: 10px;
-  }
-  
-  .attendees-div {
-    /* display: flex; */
-  }
-  
-  /* Additional styles to adjust as needed */
-  h3 {
-    margin: 0;
-    /* Align the text to the left */
-    text-align: left;
+    height: 25px;
+    width: 160px;
   }
   
   p {
     margin: 0;
     /* Align the text to the left */
     text-align: left;
+  }
+
+  .p-cashier {
+    font-weight: 500;
   }

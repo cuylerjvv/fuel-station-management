@@ -1,0 +1,68 @@
+.cashier {
+    border: none;
+    outline: none;
+    height: 2rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 25vh;
+    padding: 0 0 0 4px;
+}
+
+.cashier:disabled {
+    color: black;
+    background-color: rgb(190, 190, 190);
+    opacity: 0.5;
+}
+
+.attendant {
+    border: none;
+    outline: none;
+    height: 2rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 25vh;
+    padding: 0 0 0 4px;
+}
+
+.attendant:disabled {
+    color: black;
+    background-color: rgb(190, 190, 190);
+    opacity: 0.5;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    color: lightslategray;
+}
+
+.select {
+    border: none;
+    outline: none;
+    height: 2rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding: 2px 0 2px 0;
+}
+
+.select:disabled {
+    color: black;
+    background-color: rgb(190, 190, 190);
+    opacity: 0.5;
+}

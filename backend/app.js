@@ -5,7 +5,10 @@ const cors = require('cors')
 
 const databaseConnections = require('./databaseConnections');
 const employeesRoute = require('./Routes/employees-route');
-const shiftlistRoute = require('./Routes/employees-route');
+const shiftlistGetRoute = require('./Routes/shiftlistGet-route');
+const shiftlistCreateRoute = require('./Routes/shiftlistCreate-route')
+const availableWagesRoute = require('./Routes/availableWages-route')
+const wagesRoute = require('./Routes/wages-route')
 
 const app = express();
 
@@ -20,6 +23,26 @@ app.use(cors());
 //     next();
 // });
 
+app.use('/:location', (req, res, next) => {
+    const location = req.params.location;
+    req.location = location;
+    next();
+}, availableWagesRoute);
+
+app.use('/:location/wages/:firstday', (req, res, next) => {
+    const location = req.params.location;
+    const firstday = req.params.firstday;
+    req.location = location;
+    req.firstday = firstday;
+    next();
+}, wagesRoute);
+
+app.use('/:location/shiftlist', (req, res, next) => {
+    const location = req.params.location;
+    req.location = location;
+    next();
+}, shiftlistGetRoute);
+
 app.use('/:location/employees', (req, res, next) => {
     const location = req.params.location;
     console.log(location);
@@ -27,12 +50,11 @@ app.use('/:location/employees', (req, res, next) => {
     next();
   }, employeesRoute);
 
-app.use('/:location/shiftlist', (req, res, next) => {
+  app.use('/:location/shiftlist/create', (req, res, next) => {
     const location = req.params.location;
     req.location = location;
     next();
-}, shiftlistRoute);
-
+}, shiftlistCreateRoute);
 
 Promise.all([databaseConnections.dixie, databaseConnections.gazelle])
     .then(() => {

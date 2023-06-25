@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
 import AddEmployeeModal from './AddEmployeeModal'
+import { ButtonGroup, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import './AddEmployeeModal'
 
 function AddEmployeeButton(props) {
 
-  const[addEmployeePopUp, setAddEmployeePopUp] = useState (false);
-
   return (
-    <div>
-        <button onClick={() => setAddEmployeePopUp(true)}>Add employee</button>
-
-        <AddEmployeeModal 
-            open = {addEmployeePopUp} 
-            onClose = {() => setAddEmployeePopUp(false) } 
-            setEmployeesList={props.setEmployeesList}
-        >    
+    
+      <Box>
+        <AddEmployeeModal
+          open={props.addEmployeePopUp}
+          setEmployeesList={props.setEmployeesList}
+        >
         </AddEmployeeModal>
 
-    </div>
+      </Box>
   )
 }
 

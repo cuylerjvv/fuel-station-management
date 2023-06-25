@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom'
+import { Box } from '@mui/material';
 
 import CreateShiftlistFormChild from './CreateShiftlistFormChild';
 import './CreateShiftlistForm.css'
@@ -10,9 +11,9 @@ function CreateShiftlistForm(props) {
   const daysCount = 7;
   let numberOfInputs;
 
-  if(location === 'dixie') {
+  if (location === 'dixie') {
     numberOfInputs = 8;
-  } else {
+  } else if (location === 'gazelle'){
     numberOfInputs = 4;
   }
 
@@ -23,16 +24,15 @@ function CreateShiftlistForm(props) {
   }
 
   const [assigned, setAssigned] = useState(initialGrid);
-  
-   const updateAssigned = (relevantDay, focusedInput, name) => {
+
+  const updateAssigned = (relevantDay, focusedInput, employee) => {
     setAssigned(prevState => {
       const updatedState = [...prevState];
-      
-      updatedState[focusedInput][relevantDay] = name;
+
+      updatedState[focusedInput][relevantDay] = employee;
       return updatedState;
     });
-    console.log("Employee saved: " + assigned[focusedInput][relevantDay]);
-    console.log("Relevant day, selected employees: " + assigned)
+    console.log("Employee saved: " + assigned[focusedInput][relevantDay].name);
   }
 
   const editDayHandler = (event) => {
@@ -61,7 +61,7 @@ function CreateShiftlistForm(props) {
               attendantThree: assigned[7][index]
             }
           }
-        }; 
+        };
         break;
       case 'gazelle':
         value = {
@@ -76,29 +76,39 @@ function CreateShiftlistForm(props) {
           }
         }
         break;
-      }
-        console.log(value)
-        props.onAddDay(event, value);
-
     }
+    console.log(value)
+    props.onAddDay(event, value);
 
-    return (
-      <div className='input-div'>
-        {Array.from({ length: daysCount }, (_, index) => (
-          <CreateShiftlistFormChild
-            key={index}
-            index={index}
-            location={location}
-            daysArray={props.daysArray}
-            relevantDay={props.daysArray.length}
-            assigned={assigned}
-            updateAssigned={updateAssigned}
-            editDayHandler={editDayHandler}
-            handleAddDay={handleAddDay}
-          ></CreateShiftlistFormChild>
-        ))}
-      </div>
+  }
+
+  return (
+    <Box
+      sx={{
+      
+        display: 'inline-flex',
+        backgroundColor: 'white',
+        border: '1px solid #dd1d21',
+        overflow: 'auto',
+        m: '2rem'
+        }}
+      >
+ 
+    {Array.from({ length: daysCount }, (_, index) => (
+      <CreateShiftlistFormChild
+        key={index}
+        index={index}
+        location={location}
+        daysArray={props.daysArray}
+        relevantDay={props.daysArray.length}
+        assigned={assigned}
+        updateAssigned={updateAssigned}
+        editDayHandler={editDayHandler}
+        handleAddDay={handleAddDay}
+      ></CreateShiftlistFormChild>
+    ))}
+      </Box >
     )
   }
 
-  export default CreateShiftlistForm;
+export default CreateShiftlistForm;

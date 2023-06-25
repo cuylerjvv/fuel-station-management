@@ -5,17 +5,12 @@ import './AddEmployeeModal.css'
 
 function AddEmployeeModal(props) {
 
-  if(!props.open) return null
-
   return (
     <>
-        <div className="overlay"></div>
-        <div className="modal">
-                <AddEmployeeForm 
-                  onClose={props.onClose}
-                  setEmployeesList={props.setEmployeesList}
-                />              
-        </div>
+      <AddEmployeeForm
+        setEmployeesList={props.setEmployeesList}
+        onClose={props.onClose}
+      />
     </>
   )
 }

@@ -1,15 +1,16 @@
 .modal {
-    border: double;
-    position: relative;
-    top: 30%;
+    border: 1px solid #dd1d21;
+    border-radius: 4px;
+    position: absolute;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(187, 187, 187);
-    padding: 20px;
-    width: 20%;
+    padding: 0;
+    width: 240px;
     z-index: 10;
 }
-
+ 
 .overlay {
     position: fixed;
     top: 0;
